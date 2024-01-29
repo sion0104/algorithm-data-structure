@@ -4,7 +4,7 @@ N = int(sys.stdin.readline())
 
 A = list(map(int, sys.stdin.readline().split()))
 
-dp = [1]*(N)
+dp = [1] * N
 
 for i in range(1, N):
     for j in range(i):
