@@ -11,8 +11,3 @@ for i in range(1, N):
 for _ in range(M):
     start, end = map(int, sys.stdin.readline().split())
     print(prefix_sum[end]-prefix_sum[start-1])
-
-
-
-
-
