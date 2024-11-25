@@ -9,9 +9,8 @@ count = 0
 
 def check(now_row):
     for row in range(now_row):
-        if visited[now_row] == visited[row] or now_row - row == abs(visited[now_row] - visited[row]):
+        if visited[now_row] == visited[row] or abs(now_row - row) == abs(visited[now_row] - visited[row]):
             return False
-
     return True
 
 
