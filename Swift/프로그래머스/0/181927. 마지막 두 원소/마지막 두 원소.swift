@@ -1,18 +1,12 @@
 import Foundation
 
-func solution(_ num_list:[Int]) -> [Int] {
+func solution(_ num_list: [Int]) -> [Int] {
     var result = num_list
-    let lastIndex = num_list.count - 1
-    let frontLastIndex = lastIndex - 1
-    
-    var num = 0
-    if num_list[lastIndex] > num_list[frontLastIndex]{
-        num = num_list[lastIndex] - num_list[frontLastIndex]
-    } else {
-        num = num_list[lastIndex] * 2
+
+    if let last = num_list.last, let secondLast = num_list.dropLast().last {
+        let num = last > secondLast ? last - secondLast : last * 2
+        result.append(num)
     }
-    
-    result.append(num)
     
     return result
 }
