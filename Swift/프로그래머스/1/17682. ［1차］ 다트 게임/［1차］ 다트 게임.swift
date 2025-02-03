@@ -1,34 +1,49 @@
 import Foundation
 
-func solution(_ dartResult:String) -> Int {
-    var scores = [Int]()
-    var currentScore = ""
-    
-    for char in dartResult {
-        if char.isNumber {
-            currentScore += String(char)
-        } else {
-            if let scoreNumber = Int(currentScore) {
-                scores.append(scoreNumber)
-                currentScore = ""
+func solution(_ dartResult: String) -> Int {
+    do {
+        let pattern = "(\\d+)([SDT])([*#]?)"
+        let regex = try NSRegularExpression(pattern: pattern)
+        let nsRange = NSRange(dartResult.startIndex..<dartResult.endIndex, in: dartResult)
+        let matches = regex.matches(in: dartResult, range: nsRange)
+
+        var scores: [Int] = []
+
+        for match in matches {
+            let scoreRange = Range(match.range(at: 1), in: dartResult)!
+            let bonusRange = Range(match.range(at: 2), in: dartResult)!
+            let optionRange = match.range(at: 3).location != NSNotFound ? Range(match.range(at: 3), in: dartResult) : nil
+
+            let score = Int(dartResult[scoreRange])!
+            let bonus = dartResult[bonusRange]
+            let option = optionRange != nil ? dartResult[optionRange!] : ""
+
+            var finalScore = score
+            switch bonus {
+            case "S":
+                finalScore = Int(pow(Double(score), 1))
+            case "D":
+                finalScore = Int(pow(Double(score), 2))
+            case "T":
+                finalScore = Int(pow(Double(score), 3))
+            default:
+                break
             }
-            
-            if char == "S" {
-                scores[scores.count-1] = Int(pow(Double(scores.last!), 1.0))
-            } else if char == "D" {
-                scores[scores.count-1] = Int(pow(Double(scores.last!), 2.0))
-            } else if char == "T" {
-                scores[scores.count-1] = Int(pow(Double(scores.last!), 3.0))
-            } else if char == "*" {
-                if scores.count > 1 {
-                    scores[scores.count - 2] *= 2
+
+            if option == "*" {
+                if let prevIndex = scores.indices.last {
+                    scores[prevIndex] *= 2
                 }
-                scores[scores.count - 1] *= 2
-            } else if char == "#" {
-                scores[scores.count - 1] *= -1
+                finalScore *= 2
+            } else if option == "#" {
+                finalScore *= -1
             }
+
+            scores.append(finalScore)
         }
+
+        return scores.reduce(0, +)
+    } catch {
+        return 0
     }
-    
-    return scores.reduce(0, +)
 }
