@@ -1,13 +1,12 @@
 def solution(n):
-    b = 4
-    
-    if n < 3:
-        return n
-    
-    for i in range(4, n+1):
-        b += 1
-        while "3" in str(b) or b % 3 == 0:
-            b += 1
+    number, result = 0, 0
+
+    for _ in range(1, n+1):
+        number += 1
         
+        while number % 3 == 0 or "3" in str(number):
+            number += 1
         
-    return b
+        result = number
+        
+    return result
