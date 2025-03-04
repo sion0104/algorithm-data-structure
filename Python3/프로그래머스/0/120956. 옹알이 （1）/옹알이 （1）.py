@@ -1,15 +1,14 @@
 def solution(babbling):
-    answer = 0
-    possible = ["aya", "ye", "woo", "ma"]
+    count = 0
     
     for word in babbling:
-        temp = word
+        word = word.replace("aya", "1")\
+                .replace("ye", "2")\
+                .replace("woo", "3")\
+                .replace("ma", "4")
         
-        for sound in possible:
-            if sound in temp:
-                temp = temp.replace(sound, " ")
+        if word.isdigit():
+            if not any(str(i) + str(i) in word for i in range(1, 5)):
+                count += 1
         
-        if temp.strip() == "":
-            answer += 1
-    
-    return answer
+    return count
