@@ -1,10 +1,10 @@
 # [level 0] 로그인 성공? - 120883 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120883?language=swift) 
 
 ### 성능 요약
 
-메모리: 16.1 MB, 시간: 0.04 ms
+메모리: 16.2 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 03월 04일 17:47:51
+2025년 03월 04일 22:18:28
 
 ### 문제 설명
 
