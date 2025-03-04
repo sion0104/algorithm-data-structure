@@ -1,10 +1,10 @@
 import Foundation
 
 func solution(_ babbling:[String]) -> Int {
-    var possible = ["aya", "ye", "woo", "ma"]
+    let possible = ["aya", "ye", "woo", "ma"]
     
     return babbling.filter { word in
-        var temp = word     
+        var temp = word
                             
         for sound in possible {
             temp = temp.replacingOccurrences(of: sound, with: " ")
