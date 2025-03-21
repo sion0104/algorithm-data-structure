@@ -1,12 +1,11 @@
-# 번호: 1~n번
-# 방향 그래프
+# 정확하게 순위를 매길 수 있는 선수의 수
 def solution(n, results):
     graph = [[0] * (n+1) for _ in range(n+1)]
     
-    for winner, loser in results:
-        graph[winner][loser] = 1
-        graph[loser][winner] = -1
-        
+    for a, b in results:
+        graph[a][b] = 1 
+        graph[b][a] = -1
+    
     for k in range(1, n+1):
         for i in range(1, n+1):
             for j in range(1, n+1):
@@ -16,10 +15,11 @@ def solution(n, results):
                     graph[i][j] = -1
                     
     count = 0
-    
     for i in range(1, n+1):
-        known_matches = sum(1 for j in range(1, n+1) if graph[i][j] != 0 and j != i)
-        if known_matches == n - 1:
+        know_matches = sum(1 for j in range(1, n+1) if graph[i][j] != 0 and j != i)
+        if know_matches == n-1:
             count += 1
             
     return count
+                    
+        
