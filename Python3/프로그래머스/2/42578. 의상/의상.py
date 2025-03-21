@@ -1,14 +1,13 @@
 def solution(clothes):
     categories = {}
-    for cloth, category in clothes:
-        if category not in categories.keys():
-            categories[category] = [cloth]
-        else:
-            categories[category] += [cloth]
     
+    for name, category in clothes:
+        categories[category] = categories.get(category, []) + [name]
+        
     answer = 1
     
-    for _, value in categories.items():
-        answer *= (len(value) + 1)
+    for value in categories.values():
+        answer *= len(value) + 1
     
     return answer - 1
+        
