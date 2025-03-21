@@ -3,16 +3,17 @@ def find_parent(parent, x):
         parent[x] = find_parent(parent, parent[x])
     return parent[x]
 
-def union_parent(parent, a, b):
-    a = find_parent(parent, a)
-    b = find_parent(parent, b)
+def union_parent(parent, x, y):
+    a = find_parent(parent, x)
+    b = find_parent(parent, y)
     if a < b:
         parent[b] = a
     else:
         parent[a] = b
-
+    
+    
 def solution(n, costs):
-    costs.sort(key = lambda x: x[2])
+    costs.sort(key=lambda x: x[2])
     
     parent = [i for i in range(n)]
     
@@ -25,9 +26,6 @@ def solution(n, costs):
             total_cost += cost
             bridge += 1
             
-            if bridge == n-1:
+            if bridge == n - 1:
                 break
-    
     return total_cost
-            
-    
