@@ -1,8 +1,8 @@
 def solution(arr):
     stack = []
     
-    for num in arr:
-        if not stack or stack[-1] != num:
-            stack.append(num)
+    for i in arr:
+        if not stack or stack[-1] != i:
+            stack.append(i)
     
     return stack
