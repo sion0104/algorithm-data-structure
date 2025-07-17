@@ -13,8 +13,9 @@ def solution(lottos, win_nums):
     else:
         answer.append(6)
     
-    if lottos.count(0) + count > 1:
-        answer.append(7-lottos.count(0)-count)
+    zero_count = lottos.count(0)
+    if zero_count + count > 1:
+        answer.append(7-zero_count-count)
     else:
         answer.append(6)
         
