@@ -5,7 +5,7 @@ func solution(_ s:String) -> String {
     for char in s {
         if char == " " {
             result.append(char)
-            wordIndex = -1  // 공백을 만나면 단어 인덱스 초기화
+            wordIndex = -1
         } else {
             wordIndex += 1
             if wordIndex % 2 == 0 {
@@ -15,6 +15,5 @@ func solution(_ s:String) -> String {
             }
         }
     }
-    
     return result
 }
