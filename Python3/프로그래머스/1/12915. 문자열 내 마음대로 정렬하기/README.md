@@ -1,6 +1,6 @@
 # [level 1] 문자열 내 마음대로 정렬하기 - 12915 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12915?language=python3) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 08월 27일 20:53:02
+2025년 08월 27일 20:53:37
 
 ### 문제 설명
 
