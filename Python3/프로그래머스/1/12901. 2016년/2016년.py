@@ -5,4 +5,4 @@ def solution(a, b):
     num = sum(month[0:a-1]) + b
 
     
-    return week[num % len(week) - 1]
+    return week[(num - 1) % 7]
